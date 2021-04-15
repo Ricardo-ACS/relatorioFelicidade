@@ -12,16 +12,16 @@ import javax.swing.JOptionPane;
 import entities.Inover;
 
 public class Program {
-		
-	public static void main(String[] args) {
+			
+	public static void main(String[] args)  {
 		
 		List<Inover> lista = new ArrayList<>();
-		boolean sucesso = new File("C:\\relatorioFelicidadeInovers").mkdir();
+
+		boolean criarDiretorio = new File("C:\\relatorioFelicidadeInovers").mkdir();
+		String caminhoArquivo = "C:\\relatorioFelicidadeInovers\\relatorio.csv";
 		
-		String caminhoAquivo = "C:\\relatorioFelicidadeInovers\\relatorio.csv";
-		int novo = 0;
-		
-		while (novo == 0){
+		int controle = 0;
+		while (controle == 0){
 			
 			String nome = JOptionPane.showInputDialog(null, "Qual o nome do Inover?");
 						
@@ -33,30 +33,31 @@ public class Program {
 						
 			lista.add(new Inover(nome, pergunta1, pergunta2, pergunta3, pergunta4, pergunta5));
 			
-			novo = JOptionPane.showConfirmDialog(null, "Deseja inserir dados pra outro inover?", "", JOptionPane.YES_NO_OPTION);
+			controle = JOptionPane.showConfirmDialog(null, "Deseja inserir dados pra outro inover?", "", JOptionPane.YES_NO_OPTION);
 		}
-		try (BufferedWriter bw = new BufferedWriter(new FileWriter(caminhoAquivo))) {
-
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(caminhoArquivo))) {
+			
 			for (Inover inover : lista) {
-				bw.write(inover.getNome() + " = " + String.valueOf(inover.getPergunta1()) + ", " + String.valueOf(inover.getPergunta2())
-				+ ", " + String.valueOf(inover.getPergunta3()) + ", " + String.valueOf(inover.getPergunta4()) 
-				+ ", " + String.valueOf(inover.getPergunta5()));
+				bw.write(inover.getNome() + " - trabalho em equipe: " + inover.getPergunta1() 
+				+ "; liderança: " + inover.getPergunta2()
+				+ "; prazo: " + inover.getPergunta3() 
+				+ "; desempenho: " + inover.getPergunta4() 
+				+ "; InoveJr: " + inover.getPergunta5() 
+				+ ". O Inover está " + inover.mediaFelicidade());
 				bw.newLine();
+				
 			}
 
-			System.out.println(caminhoAquivo + " CREATED!");
+			JOptionPane.showMessageDialog(null, "Relatorio criado!");
+			
 			
 		} 
 		catch (IOException e) {
 			System.out.println("Error writing file: " + e.getMessage());
 		}
 		
-		for (Inover inover : lista) {
-			
-			double media = inover.mediaFelicidade();
-			
-		}
+		
 		
 	}
-
+	
 }

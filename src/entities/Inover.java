@@ -72,8 +72,17 @@ public class Inover {
 
 	
 	
-	public int mediaFelicidade() {
-		return (pergunta1 + pergunta2 + pergunta3 + pergunta4 + pergunta5)/5;
+	public String mediaFelicidade() {
+		double media = (pergunta1 + pergunta2 + pergunta3 + pergunta4 + pergunta5)/5;
+		if(media <=2) {
+			return("Infeliz!");
+		}
+		if(media > 2 && media < 4) {
+			return("Indiferente!");
+		}
+		else {
+			return("Feliz!");
+		}
 	}
 	
 	
