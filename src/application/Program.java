@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import entities.Inover;
 
 public class Program {
-
+		
 	public static void main(String[] args) {
 		
 		List<Inover> lista = new ArrayList<>();
@@ -33,7 +33,7 @@ public class Program {
 						
 			lista.add(new Inover(nome, pergunta1, pergunta2, pergunta3, pergunta4, pergunta5));
 			
-			novo = JOptionPane.showConfirmDialog(null, "Deseja inserir dados pra outro inover?");
+			novo = JOptionPane.showConfirmDialog(null, "Deseja inserir dados pra outro inover?", "", JOptionPane.YES_NO_OPTION);
 		}
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(caminhoAquivo))) {
 
@@ -50,7 +50,12 @@ public class Program {
 		catch (IOException e) {
 			System.out.println("Error writing file: " + e.getMessage());
 		}
-	
+		
+		for (Inover inover : lista) {
+			
+			double media = inover.mediaFelicidade();
+			
+		}
 		
 	}
 

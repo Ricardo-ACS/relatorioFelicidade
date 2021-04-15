@@ -9,6 +9,7 @@ public class Inover {
 	private Integer pergunta4;
 	private Integer pergunta5;
 	
+	
 	public Inover() {
 	}
 
@@ -69,13 +70,11 @@ public class Inover {
 		this.pergunta5 = pergunta5;
 	}
 
-	@Override
-	public String toString() {
-		return "Inover [nome=" + nome + ", pergunta1=" + pergunta1 + ", pergunta2=" + pergunta2 + ", pergunta3="
-				+ pergunta3 + ", pergunta4=" + pergunta4 + ", pergunta5=" + pergunta5 + "]";
-	}
 	
-	public int mediaFelicidade(int pergunta1, int pergunta2, int pergunta3, int pergunta4, int pergunta5 ) {
+	
+	public int mediaFelicidade() {
 		return (pergunta1 + pergunta2 + pergunta3 + pergunta4 + pergunta5)/5;
 	}
+	
+	
 }
