@@ -36,14 +36,22 @@ public class Program {
 			controle = JOptionPane.showConfirmDialog(null, "Deseja inserir dados pra outro inover?", "", JOptionPane.YES_NO_OPTION);
 		}
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(caminhoArquivo))) {
-			
+			bw.write("Nome" + ";" 
+					+ "trabalho em equipe" + ";" 
+					+ "liderança" + ";" 
+					+ "prazo" + ";" 
+					+ "desempenho" + ";" 
+					+ "Empresa" + ";" 
+					+ "Estado geral");
+			bw.newLine();
 			for (Inover inover : lista) {
-				bw.write(inover.getNome() + " - trabalho em equipe: " + inover.getPergunta1() 
-				+ "; liderança: " + inover.getPergunta2()
-				+ "; prazo: " + inover.getPergunta3() 
-				+ "; desempenho: " + inover.getPergunta4() 
-				+ "; InoveJr: " + inover.getPergunta5() 
-				+ "; O Inover está " + inover.mediaFelicidade());
+				bw.write(inover.getNome() + ";"  
+						+ inover.getPergunta1() + ";" 
+						+ inover.getPergunta2()	+ ";" 
+						+ inover.getPergunta3() + ";" 
+						+ inover.getPergunta4() + ";" 
+						+ inover.getPergunta5() + ";" 
+						+ " O Inover está " + inover.mediaFelicidade());
 				bw.newLine();
 				
 			}
