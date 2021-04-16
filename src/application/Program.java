@@ -43,7 +43,7 @@ public class Program {
 				+ "; prazo: " + inover.getPergunta3() 
 				+ "; desempenho: " + inover.getPergunta4() 
 				+ "; InoveJr: " + inover.getPergunta5() 
-				+ ". O Inover está " + inover.mediaFelicidade());
+				+ "; O Inover está " + inover.mediaFelicidade());
 				bw.newLine();
 				
 			}
@@ -56,7 +56,7 @@ public class Program {
 			System.out.println("Error writing file: " + e.getMessage());
 		}
 		
-		
+		new GraficoEmBarra(lista);
 		
 	}
 	

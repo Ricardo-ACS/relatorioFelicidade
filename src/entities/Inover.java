@@ -8,7 +8,7 @@ public class Inover {
 	private Integer pergunta3;
 	private Integer pergunta4;
 	private Integer pergunta5;
-	
+	private double mediaSatisfacao;
 	
 	public Inover() {
 	}
@@ -70,6 +70,9 @@ public class Inover {
 		this.pergunta5 = pergunta5;
 	}
 
+	public double getMediaSatisfacao() {
+	    return (pergunta1 + pergunta2 + pergunta3 + pergunta4 + pergunta5)/5;
+	}
 	
 	
 	public String mediaFelicidade() {
